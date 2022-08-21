@@ -7,10 +7,12 @@ import java.sql.Statement;
 public class TestaListagem {
 
 	public static void main(String[] args) throws SQLException {
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost/loja_virtual?useTimezone=true&serverTimezone=UTC", "root", "root");
+		//Criando conexão com o Banco
+		CriaConexao criaConexao = new CriaConexao();
+		Connection connection = criaConexao.recuperarConexao();
 		
 		//usar comandos do banco de dados
-		Statement stm = con.createStatement();
+		Statement stm = connection.createStatement();
 		stm.execute("SELECT ID, NOME, DESCRICAO FROM PRODUTO");
 		
 		//pegar o resultado da tabela
@@ -25,6 +27,6 @@ public class TestaListagem {
 			System.out.println(descricao);
 		}
 		
-		con.close();
+		connection.close();
 	}
 }
