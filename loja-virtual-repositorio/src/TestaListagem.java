@@ -16,6 +16,15 @@ public class TestaListagem {
 		//pegar o resultado da tabela
 		ResultSet rst = stm.getResultSet();
 		
+		while (rst.next()) {
+			Integer id = rst.getInt("ID");
+			System.out.println(id);
+			String nome = rst.getString("NOME");
+			System.out.println(nome);
+			String descricao = rst.getString("DESCRICAO");
+			System.out.println(descricao);
+		}
+		
 		con.close();
 	}
 }
