@@ -1,15 +1,14 @@
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class TestaConexao {
 
 	public static void main(String[] args) throws SQLException {
 		//Cria conexão com o banco de dados
-		Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost/loja_virtual?useTimezone=true&serverTimezone=UTC", "root", "root");
-		
+		CriaConexao criandoConexao = new CriaConexao();
+		Connection connection = criandoConexao.recuperarConexao();
 		System.out.println("Fechando conexão!!!");
 		
-		conexao.close();
+		connection.close();
 	}
 }
