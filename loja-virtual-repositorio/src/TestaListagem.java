@@ -7,8 +7,8 @@ public class TestaListagem {
 
 	public static void main(String[] args) throws SQLException {
 		//Criando conexão com o Banco
-		CriaConexao criaConexao = new CriaConexao();
-		Connection connection = criaConexao.recuperarConexao();
+		ConnectionFactory connectionFactory = new ConnectionFactory();
+		Connection connection = connectionFactory.recuperarConexao();
 		
 		//usar comandos do banco de dados
 		Statement stm = connection.createStatement();
