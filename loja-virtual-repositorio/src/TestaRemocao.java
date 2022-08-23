@@ -9,5 +9,6 @@ public class TestaRemocao {
 		Connection connection = factory.recuperarConexao();
 		
 		Statement stm = connection.createStatement();
+		stm.execute("DELETE FROM PRODUTO WHERE ID > 2");
 	}
 }
