@@ -10,5 +10,8 @@ public class TestaRemocao {
 		
 		Statement stm = connection.createStatement();
 		stm.execute("DELETE FROM PRODUTO WHERE ID > 2");
+		
+		Integer linhasModificadas = stm.getUpdateCount();
+		System.out.println(linhasModificadas);
 	}
 }
