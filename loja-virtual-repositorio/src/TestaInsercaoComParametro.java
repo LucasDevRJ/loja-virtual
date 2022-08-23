@@ -10,17 +10,14 @@ public class TestaInsercaoComParametro {
 		Connection connection = factory.recuperarConexao();
 		
 		Statement stm = connection.createStatement();
-		stm.execute("SELECT * FROM PRODUTO");
+		boolean resultado = stm.execute("INSERT INTO PRODUTO (nome, descricao) VALUES ('Mouse', 'Mouse sem fio')", Statement.RETURN_GENERATED_KEYS);
+		System.out.println(resultado);
 		
-		ResultSet rst = stm.getResultSet();
+		ResultSet rst = stm.getGeneratedKeys();
 		
 		while (rst.next()) {
-			Integer id = rst.getInt("ID");
-			System.out.println(id);
-			String nome = rst.getString("NOME");
-			System.out.println(nome);
-			String descricao = rst.getString("DESCRICAO");
-			System.out.println(descricao);
+			Integer id = rst.getInt(1);
+			System.out.println("O id criado foi: " + id);
 		}
 	}
 }
