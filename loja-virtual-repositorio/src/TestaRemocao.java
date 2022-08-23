@@ -12,6 +12,6 @@ public class TestaRemocao {
 		stm.execute("DELETE FROM PRODUTO WHERE ID > 2");
 		
 		Integer linhasModificadas = stm.getUpdateCount();
-		System.out.println(linhasModificadas);
+		System.out.println("Quantidades de linhas que foram modificadas: " + linhasModificadas);
 	}
 }
