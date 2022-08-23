@@ -9,14 +9,12 @@ public class TestaInsercaoComParametro {
 		String nome = "Mouse";
 		String descricao = "Mouse sem fio";
 		
-		String sql = "INSERT INTO PRODUTO (nome, descricao) VALUES ('" + nome + "', '" + descricao + "')";
-		System.out.println(sql);
-		
 		ConnectionFactory factory = new ConnectionFactory();
 		Connection connection = factory.recuperarConexao();
 		
-		Statement stm = connection.createStatement();
-		boolean resultado = stm.execute(sql, Statement.RETURN_GENERATED_KEYS);
+		Statement stm = connection.prepareStatement("INSERT INTO PRODUTO (nome, descricao) VALUES (?, ?)");
+		stm.execute(Statement.RETURN_GENERATED_KEYS);
+		
 		
 		ResultSet rst = stm.getGeneratedKeys();
 		
