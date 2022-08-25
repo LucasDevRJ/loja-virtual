@@ -1,8 +1,8 @@
 package doceria;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Remocao {
 
@@ -10,7 +10,12 @@ public class Remocao {
 		CriaConexao criaConexao = new CriaConexao();
 		Connection conexao = criaConexao.conecta();
 		
-		Statement stm = conexao.createStatement();
-		stm.execute("DELETE FROM DOCE WHERE ID > 2");
+		//Gerencia os dados recebidos pela conexão
+		PreparedStatement stm = conexao.prepareStatement("DELETE FROM DOCE WHERE ID > ?");
+		
+		//Setta o atributo ? no statement
+		stm.setInt(1, 2);
+		
+		stm.execute();
 	}
 }

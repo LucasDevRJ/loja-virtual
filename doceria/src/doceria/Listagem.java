@@ -1,9 +1,9 @@
 package doceria;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Listagem {
 
@@ -12,9 +12,11 @@ public class Listagem {
 		CriaConexao criaConexao = new CriaConexao();
 		Connection conexao = criaConexao.conecta();
 		
-		//Utilizar comandos do Banco de dados
-		Statement stm = conexao.createStatement();
-		boolean resultado = stm.execute("SELECT ID, NOME, INGREDIENTES FROM DOCE");
+		//Utilizar comandos do Banco de dados, gerenciando-os
+		PreparedStatement stm = conexao.prepareStatement("SELECT ID, NOME, INGREDIENTES FROM DOCE");
+		
+		//Operação lógica para saber se esta funcionando
+		boolean resultado = stm.execute();
 		
 		System.out.println(resultado);
 		
