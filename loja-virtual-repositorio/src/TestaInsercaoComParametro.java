@@ -14,8 +14,8 @@ public class TestaInsercaoComParametro {
 		PreparedStatement stm = connection.prepareStatement("INSERT INTO PRODUTO (nome, descricao) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
 		
 		//Setar os atributos do banco, pegando como referência o ? do Statement
-		adicionarVariavel("", "", stm);
-		adicionarVariavel("", "", stm);
+		adicionarVariavel("SmartTV", "45 polegadas", stm);
+		adicionarVariavel("Radio", "Radio de bateria", stm);
 	}
 
 	private static void adicionarVariavel(String nome, String descricao, PreparedStatement stm) throws SQLException {
