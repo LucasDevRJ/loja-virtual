@@ -12,7 +12,7 @@ public class TestaListagem {
 		
 		//usar comandos do banco de dados
 		PreparedStatement stm = connection.prepareStatement("SELECT ID, NOME, DESCRICAO FROM PRODUTO");
-		stm.execute("");
+		stm.execute();
 		
 		//pegar o resultado da tabela
 		ResultSet rst = stm.getResultSet();
