@@ -17,6 +17,11 @@ public class InsercaoParametro {
 		
 		//Gerencia os dados inseridos
 		PreparedStatement stm = conexao.prepareStatement("INSERT INTO doce (nome, ingredientes) VALUES ('?, ?')", Statement.RETURN_GENERATED_KEYS);
+		
+		//Settar os atributos (? ?)
+		stm.setString(1, nome);
+		stm.setString(2, descricao);
+		
 		stm.execute();
 		
 		ResultSet rst = stm.getGeneratedKeys();
