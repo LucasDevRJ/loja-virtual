@@ -9,6 +9,7 @@ public class TestaInsercaoComParametro {
 	public static void main(String[] args) throws SQLException {
 		ConnectionFactory factory = new ConnectionFactory();
 		Connection connection = factory.recuperarConexao();
+		connection.setAutoCommit(false); //para controlar a transação
 		
 		//Para permitir os parametros e transformar tudo em String, dando mais segurança para o sistema
 		PreparedStatement stm = connection.prepareStatement("INSERT INTO PRODUTO (nome, descricao) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
@@ -21,10 +22,10 @@ public class TestaInsercaoComParametro {
 	private static void adicionarVariavel(String nome, String descricao, PreparedStatement stm) throws SQLException {
 		stm.setString(1, nome);
 		stm.setString(2, descricao);
-		
-		if (nome.equals("Radio")) {
-			throw new RuntimeException("Não foi possivel adicionar o produto!!!");
-		}
+//		
+//		if (nome.equals("Radio")) {
+//			throw new RuntimeException("Não foi possivel adicionar o produto!!!");
+//		}
 		
 		stm.execute();
 		

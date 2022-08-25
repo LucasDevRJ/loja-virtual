@@ -17,15 +17,18 @@ public class InsercaoParametro {
 		
 		//Gerencia os dados inseridos
 		PreparedStatement stm = conexao.prepareStatement("INSERT INTO doce (nome, ingredientes) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
-		
+		adicionarDoce("", "", stm);
+	}
+
+	public static void adicionarDoce(String nome, String ingredientes, PreparedStatement stm) throws SQLException {
 		//Settar os atributos (? ?)
 		stm.setString(1, nome);
-		stm.setString(2, descricao);
-		
+		stm.setString(2, ingredientes);
+				
 		stm.execute();
-		
+				
 		ResultSet rst = stm.getGeneratedKeys();
-		
+				
 		while (rst.next()) {
 			Integer id = rst.getInt(1);
 			System.out.println("O ID criado foi: " + id);
