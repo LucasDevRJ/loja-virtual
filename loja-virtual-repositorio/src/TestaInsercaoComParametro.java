@@ -22,8 +22,11 @@ public class TestaInsercaoComParametro {
 		stm.setString(1, nome);
 		stm.setString(2, descricao);
 		
-		stm.execute();
+		if (nome.equals("Radio")) {
+			throw new RuntimeException("Não foi possivel adicionar o produto!!!");
+		}
 		
+		stm.execute();
 		
 		ResultSet rst = stm.getGeneratedKeys();
 		
