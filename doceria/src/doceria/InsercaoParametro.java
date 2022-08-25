@@ -8,11 +8,14 @@ import java.sql.Statement;
 public class InsercaoParametro {
 
 	public static void main(String[] args) throws SQLException {
+		String nome = "";
+		String descricao = "";
+		
 		CriaConexao criaConexao = new CriaConexao();
 		Connection conexao = criaConexao.conecta();
 		
 		Statement stm = conexao.createStatement();
-		stm.execute("INSERT INTO doce (nome, ingredientes) VALUES ('Sequilho', 'Leite condesado, amido de milho, manteiga, leite ninho')", Statement.RETURN_GENERATED_KEYS);
+		stm.execute("INSERT INTO doce (nome, ingredientes) VALUES ('" + nome + "', '" + descricao + "')", Statement.RETURN_GENERATED_KEYS);
 		
 		ResultSet rst = stm.getGeneratedKeys();
 		
