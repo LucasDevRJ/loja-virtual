@@ -7,9 +7,6 @@ import java.sql.Statement;
 public class TestaInsercaoComParametro {
 
 	public static void main(String[] args) throws SQLException {
-		String nome = "Mouse";
-		String descricao = "Mouse sem fio";
-		
 		ConnectionFactory factory = new ConnectionFactory();
 		Connection connection = factory.recuperarConexao();
 		
@@ -17,7 +14,8 @@ public class TestaInsercaoComParametro {
 		PreparedStatement stm = connection.prepareStatement("INSERT INTO PRODUTO (nome, descricao) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
 		
 		//Setar os atributos do banco, pegando como referência o ? do Statement
-		adicionarVariavel(nome, descricao, stm);
+		adicionarVariavel("", "", stm);
+		adicionarVariavel("", "", stm);
 	}
 
 	private static void adicionarVariavel(String nome, String descricao, PreparedStatement stm) throws SQLException {
@@ -29,6 +27,7 @@ public class TestaInsercaoComParametro {
 		
 		ResultSet rst = stm.getGeneratedKeys();
 		
+		//retorna as chaves geradas
 		while (rst.next()) {
 			Integer id = rst.getInt(1);
 			System.out.println("O id criado foi: " + id);
