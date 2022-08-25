@@ -1,6 +1,7 @@
 package doceria;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -8,14 +9,15 @@ import java.sql.Statement;
 public class InsercaoParametro {
 
 	public static void main(String[] args) throws SQLException {
-		String nome = "";
-		String descricao = "";
+		String nome = "Mouse";
+		String descricao = "Mouse sem fio";
 		
 		CriaConexao criaConexao = new CriaConexao();
 		Connection conexao = criaConexao.conecta();
 		
-		Statement stm = conexao.createStatement();
-		stm.execute("INSERT INTO doce (nome, ingredientes) VALUES ('" + nome + "', '" + descricao + "')", Statement.RETURN_GENERATED_KEYS);
+		//Gerencia os dados inseridos
+		PreparedStatement stm = conexao.prepareStatement("INSERT INTO doce (nome, ingredientes) VALUES ('?, ?')", Statement.RETURN_GENERATED_KEYS);
+		stm.execute();
 		
 		ResultSet rst = stm.getGeneratedKeys();
 		
