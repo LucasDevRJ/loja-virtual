@@ -17,5 +17,8 @@ public class Remocao {
 		stm.setInt(1, 2);
 		
 		stm.execute();
+		
+		Integer linhasModificadas = stm.getUpdateCount();
+		System.out.println("Quantidades de linhas que foram modificadas: " + linhasModificadas);
 	}
 }

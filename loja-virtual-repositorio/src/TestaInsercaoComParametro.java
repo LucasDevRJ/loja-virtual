@@ -17,6 +17,11 @@ public class TestaInsercaoComParametro {
 		//Setar os atributos do banco, pegando como referência o ? do Statement
 		adicionarVariavel("SmartTV", "45 polegadas", stm);
 		adicionarVariavel("Radio", "Radio de bateria", stm);
+		
+		connection.commit();
+		
+		stm.close();
+		connection.close();
 	}
 
 	private static void adicionarVariavel(String nome, String descricao, PreparedStatement stm) throws SQLException {

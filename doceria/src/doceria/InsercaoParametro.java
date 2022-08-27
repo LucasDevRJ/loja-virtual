@@ -24,9 +24,9 @@ public class InsercaoParametro {
 		stm.setString(1, nome);
 		stm.setString(2, ingredientes);
 			
-		if (stm.equals("Danoninho")) {
-			throw new RuntimeException("Não foi possivel adicionar o doce!!!");
-		}
+//		if (nome.equals("Danoninho")) {
+//			throw new RuntimeException("Não foi possivel adicionar o doce!!!");
+//		}
 		
 		stm.execute();
 				
