@@ -20,7 +20,7 @@ public class TestaInsercaoComParametro {
 			adicionarVariavel("SmartTV", "45 polegadas", stm);
 			adicionarVariavel("Radio", "Radio de bateria", stm);
 			
-			//Evitar conflitos de erro de transação
+			//Evitar conflitos de erro de transação, caso havendo problema, a transação não será feita
 			connection.commit();
 			
 			stm.close();

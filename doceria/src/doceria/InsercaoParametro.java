@@ -13,10 +13,23 @@ public class InsercaoParametro {
 		Connection conexao = criaConexao.conecta();
 		conexao.setAutoCommit(false); //controlar as transações
 		
-		//Gerencia os dados inseridos
-		PreparedStatement stm = conexao.prepareStatement("INSERT INTO doce (nome, ingredientes) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
-		adicionarDoce("Pudim de leite", "Gelatina, água, leite condesado, creme de leite, baunilha e leite", stm);
-		adicionarDoce("Danoninho", "Leite condesado, creme de leite e morango", stm);
+		try {
+			//Gerencia os dados inseridos
+			PreparedStatement stm = conexao.prepareStatement("INSERT INTO doce (nome, ingredientes) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
+			adicionarDoce("Pudim de leite", "Gelatina, água, leite condesado, creme de leite, baunilha e leite", stm);
+			adicionarDoce("Danoninho", "Leite condesado, creme de leite e morango", stm);
+			
+			//Evitar possives erros na transação antes que aconteça
+			conexao.commit();
+			
+			stm.close();
+			conexao.close();
+			
+		} catch (Exception erro) {
+			erro.printStackTrace();
+			System.out.println("Execução do ROLLBACK");
+			conexao.rollback();
+		}
 	}
 
 	public static void adicionarDoce(String nome, String ingredientes, PreparedStatement stm) throws SQLException {
