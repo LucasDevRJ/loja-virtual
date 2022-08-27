@@ -8,17 +8,19 @@ public class Remocao {
 
 	public static void main(String[] args) throws SQLException {
 		CriaConexao criaConexao = new CriaConexao();
-		Connection conexao = criaConexao.conecta();
-		
-		//Gerencia os dados recebidos pela conexão
-		PreparedStatement stm = conexao.prepareStatement("DELETE FROM DOCE WHERE ID > ?");
-		
-		//Setta o atributo ? no statement
-		stm.setInt(1, 2);
-		
-		stm.execute();
-		
-		Integer linhasModificadas = stm.getUpdateCount();
-		System.out.println("Quantidades de linhas que foram modificadas: " + linhasModificadas);
+		try (Connection conexao = criaConexao.conecta()) {
+
+			// Gerencia os dados recebidos pela conexão
+			try (PreparedStatement stm = conexao.prepareStatement("DELETE FROM DOCE WHERE ID > ?")) {
+
+				// Setta o atributo ? no statement
+				stm.setInt(1, 2);
+
+				stm.execute();
+
+				Integer linhasModificadas = stm.getUpdateCount();
+				System.out.println("Quantidades de linhas que foram modificadas: " + linhasModificadas);
+			}
+		}
 	}
 }
