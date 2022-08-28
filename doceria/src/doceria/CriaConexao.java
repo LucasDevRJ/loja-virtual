@@ -17,6 +17,8 @@ public class CriaConexao {
 		conexaoBanco.setUser("root");
 		conexaoBanco.setPassword("root");
 		
+		conexaoBanco.setMaxPoolSize(10);
+		
 		this.conexao = conexaoBanco;
 	}
 
