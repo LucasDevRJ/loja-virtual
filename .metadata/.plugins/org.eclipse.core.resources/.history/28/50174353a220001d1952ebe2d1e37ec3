@@ -1,8 +1,0 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-
-public class TestaConexao {
-
-	//Cria conexão com o banco de dados
-	Connection conexao = DriverManager.getConnection(null, null, null);
-}
