@@ -1,5 +1,4 @@
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
@@ -8,6 +7,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class ConnectionFactory {
 	
+	//Fará o Pooled funcionar
 	public DataSource dataSource;
 	
 	public ConnectionFactory() {
