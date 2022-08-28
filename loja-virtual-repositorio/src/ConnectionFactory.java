@@ -8,6 +8,9 @@ public class ConnectionFactory {
 	
 	public ConnectionFactory() {
 		ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
+		comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost/loja_virtual?useTimezone=true&serverTimezone=UTC");
+		comboPooledDataSource.setUser("root");
+		comboPooledDataSource.setPassword("root");
 	}
 
 	//Método para criar a conexão com o Banco
