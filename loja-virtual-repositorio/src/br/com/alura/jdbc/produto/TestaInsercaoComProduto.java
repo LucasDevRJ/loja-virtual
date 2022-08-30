@@ -16,8 +16,8 @@ public class TestaInsercaoComProduto {
 		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
 			String sql = "INSERT INTO PRODUTO (NOME, DESCRICAO) VALUES (?, ?)";
 			
-			ProdutoDAO persistenciaProduto = new ProdutoDAO(connection);
-			persistenciaProduto.salvarProduto(comoda);
+			ProdutoDAO produtoDAO = new ProdutoDAO(connection);
+			produtoDAO.salvar(comoda);
 		}
 		System.out.println(comoda);
 	}
