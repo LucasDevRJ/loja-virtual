@@ -1,3 +1,4 @@
+package br.com.alura.jdbc.produto;
 import java.sql.SQLException;
 
 public class TestaPoolConexoes {
