@@ -35,16 +35,18 @@ public class ProdutoDAO {
 	}
 	
 	public List<Produto> listar() throws SQLException {
-		List<Produto> produto = new ArrayList<Produto>();
+		List<Produto> produtos = new ArrayList<Produto>();
 		
 		String sql = "SELECT ID, NOME, DESCRICAO FROM PRODUTO";
 		
 		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 			pstm.execute();
 			
-			try (ResultSet rst = pstm.getResultSet())) {
+			try (ResultSet rst = pstm.getResultSet()) {
 				while (rst.next()) {
+					Produto produto = new Produto(rst.getInt(1), rst.getString(2), rst.getString(3));
 					
+					produtos.add(produto);
 				}
 			}
 		}
