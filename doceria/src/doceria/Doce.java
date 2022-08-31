@@ -28,4 +28,9 @@ public class Doce {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("Doce: %d, %s, %s", this.id, this.nome, this.ingredientes);
+	}
 }

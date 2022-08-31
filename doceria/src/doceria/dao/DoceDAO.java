@@ -44,8 +44,13 @@ public class DoceDAO {
 			ps.execute();
 			
 			try (ResultSet rs = ps.getResultSet()) {
-				Doce doce = new Doce();
+				while (rs.next()) {
+					Doce doce = new Doce(rs.getInt(1), rs.getString(2), rs.getString(3));
+					
+					doces.add(doce);
+				}
 			}
 		}
+		return doces;
 	}
 }
