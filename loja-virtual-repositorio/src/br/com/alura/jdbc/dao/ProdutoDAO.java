@@ -43,7 +43,9 @@ public class ProdutoDAO {
 			pstm.execute();
 			
 			try (ResultSet rst = pstm.getResultSet())) {
-				
+				while (rst.next()) {
+					
+				}
 			}
 		}
 	}
