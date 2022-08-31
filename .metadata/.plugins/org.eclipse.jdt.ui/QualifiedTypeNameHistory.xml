@@ -10,13 +10,17 @@
     <fullyQualifiedTypeName name="com.mchange.v2.c3p0.ComboPooledDataSource"/>
     <fullyQualifiedTypeName name="javax.sql.DataSource"/>
     <fullyQualifiedTypeName name="TestaConexao"/>
-    <fullyQualifiedTypeName name="br.com.alura.jdbc.modelo.Produto"/>
     <fullyQualifiedTypeName name="ConnectionFactory"/>
     <fullyQualifiedTypeName name="com.mysql.cj.xdevapi.PreparableStatement"/>
-    <fullyQualifiedTypeName name="doceria.CriaConexao"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.util.concurrent.locks.StampedLock"/>
+    <fullyQualifiedTypeName name="br.com.alura.jdbc.modelo.Produto"/>
+    <fullyQualifiedTypeName name="PersistenciaProduto"/>
+    <fullyQualifiedTypeName name="doceria.Doce"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="doceria.InsercaoDoce"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="doceria.CriaConexao"/>
+    <fullyQualifiedTypeName name="doceria.dao.DoceDAO"/>
 </qualifiedTypeNameHistroy>

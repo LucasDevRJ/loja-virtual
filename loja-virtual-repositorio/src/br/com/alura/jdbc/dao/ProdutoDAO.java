@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.alura.jdbc.modelo.Produto;
 
@@ -28,6 +30,20 @@ public class ProdutoDAO {
 				while (rst.next()) {
 					produto.setId(rst.getInt(1));
 				}
+			}
+		}
+	}
+	
+	public List<Produto> listar() throws SQLException {
+		List<Produto> produto = new ArrayList<Produto>();
+		
+		String sql = "SELECT ID, NOME, DESCRICAO FROM PRODUTO";
+		
+		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+			pstm.execute();
+			
+			try (ResultSet rst = pstm.getResultSet())) {
+				
 			}
 		}
 	}
