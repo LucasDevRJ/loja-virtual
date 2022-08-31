@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import doceria.Doce;
 
@@ -29,6 +31,20 @@ public class DoceDAO {
 				while (rs.next()) {
 					doce.setId(rs.getInt(1));
 				}
+			}
+		}
+	}
+	 
+	public List<Doce> listar() throws SQLException {
+		List<Doce> doces = new ArrayList<Doce>();
+		
+		String sql = "SELECT * FROM DOCE";
+		
+		try (PreparedStatement ps = conexao.prepareStatement(sql)) {
+			ps.execute();
+			
+			try (ResultSet rs = ps.getResultSet()) {
+				Doce doce = new Doce();
 			}
 		}
 	}

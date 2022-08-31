@@ -10,6 +10,12 @@ public class Doce {
 		this.nome = nome;
 		this.ingredientes = ingredientes;
 	}
+	 
+	public Doce(Integer id, String nome, String ingredientes) {
+		this.id = id;
+		this.nome = nome;
+		this.ingredientes = ingredientes;
+	}
 	
 	public String getNome() {
 		return nome;
