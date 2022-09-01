@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.util.List;
 
+import br.com.alura.jdbc.dao.CategoriaDAO;
 import br.com.alura.jdbc.produto.ConnectionFactory;
 
 public class TestaListagemDeCategorias {
