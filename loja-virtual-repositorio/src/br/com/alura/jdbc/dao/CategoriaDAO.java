@@ -3,6 +3,9 @@ package br.com.alura.jdbc.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.mysql.cj.xdevapi.Result;
 
@@ -16,7 +19,7 @@ public class CategoriaDAO {
 		this.connection = connection;
 	}
 	
-	public List<Categoria> listar() {
+	public List<Categoria> listar() throws SQLException {
 		List<Categoria> categorias = new ArrayList<>();
 		
 		String sql = "SELECT ID, NOME FROM CATEGORIA";
@@ -26,10 +29,13 @@ public class CategoriaDAO {
 			
 			try (ResultSet rst = pstm.getResultSet()) {
 				while (rst.next()) {
-					Categoria categoria = new Categoria();
+					Categoria categoria = new Categoria(rst.getInt(1), rst.getString(2));
+					
+					categorias.add(categoria);
 				}
 			}
 		}
+		return categorias;
 	}
 
 }
