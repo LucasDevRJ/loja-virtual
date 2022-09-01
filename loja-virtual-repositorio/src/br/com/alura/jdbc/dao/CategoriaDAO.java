@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.cj.xdevapi.Result;
-
 import br.com.alura.jdbc.modelo.Categoria;
 
 public class CategoriaDAO {
