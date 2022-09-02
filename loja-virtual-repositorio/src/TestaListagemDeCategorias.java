@@ -1,6 +1,5 @@
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Iterator;
 import java.util.List;
 
 import br.com.alura.jdbc.dao.CategoriaDAO;
@@ -18,8 +17,12 @@ public class TestaListagemDeCategorias {
 			listaDeProdutos.stream().forEach(ct -> {
 				System.out.println(ct.getNome());
 				
-				for (Produto produto : new ProdutoDAO(connection).buscar(ct)) {
-					System.out.println(ct.getNome() + " - " + produto.getNome());
+				try {
+					for (Produto produto : new ProdutoDAO(connection).buscar(ct)) {
+						System.out.println(ct.getNome() + " - " + produto.getNome());
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
 				}
 			});
 		}

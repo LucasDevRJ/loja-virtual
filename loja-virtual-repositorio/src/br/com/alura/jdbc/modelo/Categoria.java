@@ -14,4 +14,9 @@ public class Categoria {
 		return nome;
 	}
 
+	public int getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
 }

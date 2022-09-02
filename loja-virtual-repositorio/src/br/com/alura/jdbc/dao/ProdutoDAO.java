@@ -1,4 +1,5 @@
 package br.com.alura.jdbc.dao;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,19 +35,19 @@ public class ProdutoDAO {
 			}
 		}
 	}
-	
+
 	public List<Produto> listar() throws SQLException {
 		List<Produto> produtos = new ArrayList<Produto>();
-		
+
 		String sql = "SELECT ID, NOME, DESCRICAO FROM PRODUTO";
-		
+
 		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 			pstm.execute();
-			
+
 			try (ResultSet rst = pstm.getResultSet()) {
 				while (rst.next()) {
 					Produto produto = new Produto(rst.getInt(1), rst.getString(2), rst.getString(3));
-					
+
 					produtos.add(produto);
 				}
 			}
@@ -54,8 +55,25 @@ public class ProdutoDAO {
 		return produtos;
 	}
 
-	public Produto[] buscar(Categoria ct) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Produto> buscar(Categoria ct) throws SQLException {
+		List<Produto> produtos = new ArrayList<Produto>();
+		
+		System.out.println("Executando a query de buscar produto por categoria");
+
+		String sql = "SELECT ID, NOME, DESCRICAO FROM PRODUTO WHERE CATEGORIA_ID = ?";
+
+		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+			pstm.setInt(1, ct.getId());
+			pstm.execute();
+
+			try (ResultSet rst = pstm.getResultSet()) {
+				while (rst.next()) {
+					Produto produto = new Produto(rst.getInt(1), rst.getString(2), rst.getString(3));
+
+					produtos.add(produto);
+				}
+			}
+		}
+		return produtos;
 	}
 }

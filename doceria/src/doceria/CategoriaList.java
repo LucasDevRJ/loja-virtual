@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import doceria.dao.CategoriaDAO;
+import doceria.dao.DoceDAO;
 
 public class CategoriaList {
 
@@ -12,14 +13,11 @@ public class CategoriaList {
 		try (Connection conexao = new CriaConexao().conecta()) {
 			CategoriaDAO categoriaDao = new CategoriaDAO(conexao);
 			List<Categoria> listaCategorias = categoriaDao.listar();
-			
-			System.out.println("Lista de Categorias");
-			
-			for (Categoria categoria : listaCategorias) {
-				
-				System.out.println(categoria);
-				System.out.println();
-			}
+			listaCategorias.stream().forEach(lc -> {
+				for (Doce doce : new DoceDAO(conexao).buscar(ct)) {
+					
+				}
+			});
 		}
 	}
 }

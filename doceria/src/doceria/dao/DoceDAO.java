@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import doceria.Categoria;
 import doceria.Doce;
 
 public class DoceDAO {
@@ -51,6 +52,27 @@ public class DoceDAO {
 				}
 			}
 		}
+		return doces;
+	}
+
+	public List<Doce> buscar(Categoria ct) throws SQLException {
+		List<Doce> doces = new ArrayList<Doce>();
+		
+		String sql = "SELECT * FROM DOCE WHERE CATEGORIA_ID = ?";
+		
+		try (PreparedStatement ps = conexao.prepareStatement(sql)) {
+			ps.setInt(1, ct.getId());
+			ps.execute();
+			
+			try (ResultSet rs = ps.getResultSet()) {
+				while (rs.next()) {
+					Doce doce = new Doce(rs.getInt(1), rs.getString(2), rs.getString(3));
+					
+					doces.add(doce);
+				}
+			}
+		}
+		
 		return doces;
 	}
 }
