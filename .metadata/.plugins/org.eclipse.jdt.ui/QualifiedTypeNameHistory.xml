@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="com.mysql.cj.xdevapi.Statement"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="CriaConexao"/>
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
@@ -16,11 +15,18 @@
     <fullyQualifiedTypeName name="br.com.alura.jdbc.modelo.Produto"/>
     <fullyQualifiedTypeName name="PersistenciaProduto"/>
     <fullyQualifiedTypeName name="doceria.Doce"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="doceria.InsercaoDoce"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="doceria.CriaConexao"/>
     <fullyQualifiedTypeName name="doceria.dao.DoceDAO"/>
+    <fullyQualifiedTypeName name="br.com.alura.jdbc.produto.ConnectionFactory"/>
+    <fullyQualifiedTypeName name="com.mysql.cj.xdevapi.Result"/>
+    <fullyQualifiedTypeName name="br.com.alura.jdbc.modelo.Categoria"/>
+    <fullyQualifiedTypeName name="doceria.CriaConexao"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="doceria.Categoria"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="doceria.dao.CategoriaDAO"/>
 </qualifiedTypeNameHistroy>

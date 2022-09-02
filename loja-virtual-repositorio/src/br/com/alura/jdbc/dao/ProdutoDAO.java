@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.alura.jdbc.modelo.Categoria;
 import br.com.alura.jdbc.modelo.Produto;
 
 public class ProdutoDAO {
@@ -51,5 +52,10 @@ public class ProdutoDAO {
 			}
 		}
 		return produtos;
+	}
+
+	public Produto[] buscar(Categoria ct) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
