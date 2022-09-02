@@ -14,8 +14,13 @@ public class CategoriaList {
 			CategoriaDAO categoriaDao = new CategoriaDAO(conexao);
 			List<Categoria> listaCategorias = categoriaDao.listar();
 			listaCategorias.stream().forEach(lc -> {
-				for (Doce doce : new DoceDAO(conexao).buscar(ct)) {
-					
+				try {
+					for (Doce doce : new DoceDAO(conexao).buscar(lc)) {
+						System.out.println("Nome: " + doce.getNome() + "\nIngredientes: " + doce.getIngredientes() + "\nTipo: " + lc.getNome());
+						System.out.println();
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
 				}
 			});
 		}
