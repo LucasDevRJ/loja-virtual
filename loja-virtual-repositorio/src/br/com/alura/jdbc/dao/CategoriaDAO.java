@@ -38,4 +38,9 @@ public class CategoriaDAO {
 		return categorias;
 	}
 
+	public List<Categoria> listarComProdutos() throws SQLException{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
