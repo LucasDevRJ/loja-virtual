@@ -3,7 +3,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import br.com.alura.jdbc.dao.CategoriaDAO;
-import br.com.alura.jdbc.dao.ProdutoDAO;
 import br.com.alura.jdbc.modelo.Categoria;
 import br.com.alura.jdbc.modelo.Produto;
 import br.com.alura.jdbc.produto.ConnectionFactory;
@@ -17,13 +16,9 @@ public class TestaListagemDeCategorias {
 			listaDeProdutos.stream().forEach(ct -> {
 				System.out.println(ct.getNome());
 				
-//				try {
-//					for (Produto produto : new ProdutoDAO(connection).buscar(ct)) {
-//						System.out.println(ct.getNome() + " - " + produto.getNome());
-//					}
-//				} catch (SQLException e) {
-//					e.printStackTrace();
-//				}
+				for (Produto produto : ct.getProdutos()) {
+					System.out.println(ct.getNome() + " - " + produto.getNome());
+				}
 			});
 		}
 	}
