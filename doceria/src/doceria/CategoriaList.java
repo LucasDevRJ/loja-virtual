@@ -12,16 +12,16 @@ public class CategoriaList {
 	public static void main(String[] args) throws SQLException {
 		try (Connection conexao = new CriaConexao().conecta()) {
 			CategoriaDAO categoriaDao = new CategoriaDAO(conexao);
-			List<Categoria> listaCategorias = categoriaDao.listar();
+			List<Categoria> listaCategorias = categoriaDao.listarComDoces();
 			listaCategorias.stream().forEach(lc -> {
-				try {
-					for (Doce doce : new DoceDAO(conexao).buscar(lc)) {
-						System.out.println("Nome: " + doce.getNome() + "\nIngredientes: " + doce.getIngredientes() + "\nTipo: " + lc.getNome());
-						System.out.println();
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+//				try {
+//					for (Doce doce : new DoceDAO(conexao).buscar(lc)) {
+//						System.out.println("Nome: " + doce.getNome() + "\nIngredientes: " + doce.getIngredientes() + "\nTipo: " + lc.getNome());
+//						System.out.println();
+//					}
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
 			});
 		}
 	}

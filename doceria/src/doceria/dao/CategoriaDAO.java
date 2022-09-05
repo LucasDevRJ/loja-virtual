@@ -35,4 +35,23 @@ public class CategoriaDAO {
 		}
 		return categorias;
 	}
+
+	public List<Categoria> listarComDoces() throws SQLException {
+		List<Categoria> categorias = new ArrayList<>();
+		
+		String sql = "SELECT * FROM CATEGORIA";
+		
+		try (PreparedStatement ps = conexao.prepareStatement(sql)) {
+			ps.execute();
+			
+			try (ResultSet rs = ps.getResultSet()) {
+				while (rs.next()) {
+					Categoria categoria = new Categoria(rs.getInt(1), rs.getString(2));
+					
+					categorias.add(categoria);
+				}
+			}
+		}
+		return categorias;
+	}
 }
