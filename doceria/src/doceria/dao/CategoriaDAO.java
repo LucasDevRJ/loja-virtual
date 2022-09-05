@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import doceria.Categoria;
+import doceria.Doce;
 
 public class CategoriaDAO {
 	
@@ -52,6 +53,8 @@ public class CategoriaDAO {
 						ultima = categoria;
 						categorias.add(categoria);
 					}
+					Doce doce = new Doce(rs.getInt(3), rs.getString(4), rs.getString(5));
+					ultima.adicionar(doce);
 				}
 			}
 		}
