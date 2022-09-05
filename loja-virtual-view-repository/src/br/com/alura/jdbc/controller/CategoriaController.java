@@ -1,8 +1,6 @@
 package br.com.alura.jdbc.controller;
 
 import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.alura.jdbc.dao.CategoriaDAO;
