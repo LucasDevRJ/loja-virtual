@@ -37,18 +37,21 @@ public class CategoriaDAO {
 	}
 
 	public List<Categoria> listarComDoces() throws SQLException {
+		Categoria ultima = null;
 		List<Categoria> categorias = new ArrayList<>();
 		
-		String sql = "SELECT * FROM CATEGORIA";
+		String sql = "SELECT C.ID, C.NOME, D.ID, D.NOME, D.INGREDIENTES FROM CATEGORIA C INNER JOIN" + " DOCE D ON C.ID = D.CATEGORIA_ID";
 		
 		try (PreparedStatement ps = conexao.prepareStatement(sql)) {
 			ps.execute();
 			
 			try (ResultSet rs = ps.getResultSet()) {
 				while (rs.next()) {
-					Categoria categoria = new Categoria(rs.getInt(1), rs.getString(2));
-					
-					categorias.add(categoria);
+					if (ultima == null || !ultima.getNome().equals(rs.getString(2))) {
+						Categoria categoria = new Categoria(rs.getInt(1), rs.getString(2));
+						ultima = categoria;
+						categorias.add(categoria);
+					}
 				}
 			}
 		}

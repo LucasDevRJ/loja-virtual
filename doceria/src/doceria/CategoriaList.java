@@ -14,6 +14,7 @@ public class CategoriaList {
 			CategoriaDAO categoriaDao = new CategoriaDAO(conexao);
 			List<Categoria> listaCategorias = categoriaDao.listarComDoces();
 			listaCategorias.stream().forEach(lc -> {
+				System.out.println(lc.getNome());
 //				try {
 //					for (Doce doce : new DoceDAO(conexao).buscar(lc)) {
 //						System.out.println("Nome: " + doce.getNome() + "\nIngredientes: " + doce.getIngredientes() + "\nTipo: " + lc.getNome());
